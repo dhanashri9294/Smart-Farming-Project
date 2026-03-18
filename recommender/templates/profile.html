@@ -1,0 +1,59 @@
+ {% extends "base.html" %}
+{% load static %}
+<title>{%block title%} Profile {% endblock %}</title>
+
+ {% block content %}
+
+<div class="row g-4">
+   <div class="col-lg-8">
+       <div class="card shadow-sm brder-0">
+          <div class="card-body">
+        
+              <h3 class="mb-3"><i class="fa-solid fa-user-pen"></i>Edit Profile</h3>
+              <form method="post" id="profileForm">
+                             {% csrf_token %}
+                             
+                                <div class="mb-3">
+                                    <label class="form-label">Full Name</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa-regular fa-user"></i></span>
+                                        <input type="text" name="name" class="form-control"value="{{full_name}}" placeholder="e.g., Test User" />
+                                    </div>
+                                </div>
+
+                                 <div class="mb-3">
+                                    <label class="form-label">Phone</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
+                                        <input type="phone" name="phone" class="form-control" value="{{profile.phone}}" placeholder="e.g., 78654***" />
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 text-muted">
+                                   <span>{{request.user.username}}</span>
+                                </div>
+
+                                 
+                                
+
+                             </div>
+                             <button class="btn btn-success mt-3 w-100 " type="submit" id="signupBtn">
+                                 <i class="fa-solid fa-save"></i><span>Save Changes</span>
+                             </button>
+                            <div class="text-center mt-3">
+                                 
+                        </form> 
+
+            </div>
+       </div>
+   </div>
+
+    <div class="col-lg-4"> 
+       
+    </div>      <!--col 2 end-->       
+</div>
+<script>
+
+</script>       
+
+{% endblock  %}
